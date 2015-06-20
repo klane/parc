@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'com.github.ben-manes.versions'
+
+group 'com.github.klane'
+version '1.0-SNAPSHOT'
+
+def compatibilityVersion = 1.8
+sourceCompatibility = compatibilityVersion
+targetCompatibility = compatibilityVersion
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.10.1'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.jblas:jblas:1.2.4'
+    testCompile 'junit:junit:4.12'
+}
