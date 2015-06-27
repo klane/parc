@@ -3,6 +3,7 @@ package com.github.klane.parc;
 import static org.junit.Assert.assertEquals;
 
 import org.jblas.DoubleMatrix;
+import org.jblas.util.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +19,7 @@ public final class BSplineTest {
 
     @Before
     public void setUp() {
+        Logger.getLogger().setLevel(Logger.WARNING);
         points = new DoubleMatrix(2, 9, 1, 0, 1, 1, 0, 1, -1, 1, -1, 0, -1, -1, 0, -1, 1, -1, 1, 0).transpose();
         weights = new DoubleMatrix(9, 1, 1, Math.sqrt(2)/2, 1, Math.sqrt(2)/2, 1, Math.sqrt(2)/2, 1, Math.sqrt(2)/2, 1);
         knots = new DoubleMatrix(12, 1, 0, 0, 0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1, 1, 1);
