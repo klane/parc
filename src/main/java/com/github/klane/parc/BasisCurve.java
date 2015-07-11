@@ -5,14 +5,16 @@ import org.jblas.DoubleMatrix;
 public abstract class BasisCurve implements ParametricCurve {
 
     protected final int n;
-    private DoubleMatrix P;
+    protected final int d;
+    protected DoubleMatrix P;
 
-    public BasisCurve(final int n) {
+    public BasisCurve(final int n, final int d) {
         this.n = n;
+        this.d = d;
     }
 
     public BasisCurve(final DoubleMatrix P) {
-        this(P.rows-1);
+        this(P.rows-1, P.columns);
         this.P = P.dup();
     }
 
