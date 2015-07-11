@@ -52,6 +52,32 @@ public final class BezierTest {
     }
 
     @Test
+    public void elevate() {
+        Bezier b = new Bezier(points);
+        Bezier e = b.elevate(0);
+        DoubleMatrix x = b.eval(T);
+        DoubleMatrix xi;
+
+        assertEquals(b.n, e.n);
+
+        for (int i=0; i<b.n; i++) {
+            assertEquals(b.P.get(i,0), e.P.get(i,0), 0);
+            assertEquals(b.P.get(i,1), e.P.get(i,1), 0);
+        }
+
+        for (int i=1; i<=20; i++) {
+            e = b.elevate(i);
+            xi = e.eval(T);
+            assertEquals(b.n+i, e.n);
+
+            for (int j=0; j<x.rows; j++) {
+                assertEquals(x.get(j,0), xi.get(j,0), TOLERANCE);
+                assertEquals(x.get(j,1), xi.get(j,1), TOLERANCE);
+            }
+        }
+    }
+
+    @Test
     public void homogeneousEqualsRational() {
         DoubleMatrix r = new RationalBezier(points, weights).eval(T);
         DoubleMatrix h = new HomogeneousBezier(points, weights).eval(T);
