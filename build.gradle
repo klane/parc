@@ -24,5 +24,6 @@ repositories {
 
 dependencies {
     compile 'org.jblas:jblas:1.2.4'
+    compile 'com.google.guava:guava:18.0'
     testCompile 'junit:junit:4.12'
 }

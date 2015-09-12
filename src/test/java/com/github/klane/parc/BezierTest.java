@@ -1,7 +1,6 @@
 package com.github.klane.parc;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.jblas.DoubleMatrix;
 import org.jblas.util.Logger;
@@ -20,35 +19,6 @@ public final class BezierTest {
         Logger.getLogger().setLevel(Logger.WARNING);
         points = new DoubleMatrix(2, 9, 1, 0, 1, 1, 0, 1, -1, 1, -1, 0, -1, -1, 0, -1, 1, -1, 1, 0).transpose();
         weights = new DoubleMatrix(9, 1, 1, Math.sqrt(2)/2, 1, Math.sqrt(2)/2, 1, Math.sqrt(2)/2, 1, Math.sqrt(2)/2, 1);
-    }
-
-    @Test
-    public void binomial() {
-        assertEquals(Bezier.binomial(0, 0), 1);
-        assertEquals(Bezier.binomial(1, 0), 1);
-        assertEquals(Bezier.binomial(1, 1), 1);
-        assertEquals(Bezier.binomial(2, 2), 1);
-        assertEquals(Bezier.binomial(8, 3), 56);
-        assertEquals(Bezier.binomial(8, 5), 56);
-        assertEquals(Bezier.binomial(11, 5), 462);
-        assertEquals(Bezier.binomial(11, 6), 462);
-        assertEquals(Bezier.binomial(50, 5), 2118760);
-        assertEquals(Bezier.binomial(50, 45), 2118760);
-
-        try {
-            Bezier.binomial(-1, 0);
-            fail();
-        } catch (IllegalArgumentException e) {}
-
-        try {
-            Bezier.binomial(0, -1);
-            fail();
-        } catch (IllegalArgumentException e) {}
-
-        try {
-            Bezier.binomial(0, 1);
-            fail();
-        } catch (IllegalArgumentException e) {}
     }
 
     @Test
