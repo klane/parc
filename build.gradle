@@ -16,7 +16,7 @@ buildscript {
 
     dependencies {
         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.12.0'
     }
 }
 
@@ -26,13 +26,29 @@ repositories {
 
 dependencies {
     compile 'org.jblas:jblas:1.2.4'
-    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.guava:guava:19.0'
     testCompile 'junit:junit:4.12'
 }
 
-javadoc.options {
-    author true
-    linkSource true
-    links 'https://docs.oracle.com/javase/8/docs/api/'
-    links 'http://jblas.org/javadoc/'
+javadoc {
+    title 'ParC: Parametric Curves ' + version + ' API'
+
+    options {
+        author true
+        linkSource true
+        links 'https://docs.oracle.com/javase/8/docs/api/'
+        links 'http://jblas.org/javadoc/'
+    }
+}
+
+extraArchive {
+    sources = true
+    tests = false
+    javadoc = true
+}
+
+nexus {
+    sign = false
+    repositoryUrl = nexusURL + 'releases'
+    snapshotRepositoryUrl = nexusURL + 'snapshots'
 }
