@@ -2,12 +2,10 @@ apply plugin: 'java'
 apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'com.github.ben-manes.versions'
 
-group 'com.github.klane'
-version '1.0-SNAPSHOT'
-
 def compatibilityVersion = 1.8
 sourceCompatibility = compatibilityVersion
 targetCompatibility = compatibilityVersion
+version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
