@@ -1,22 +1,13 @@
-apply plugin: 'java'
-apply plugin: 'com.bmuschko.nexus'
-apply plugin: 'com.github.ben-manes.versions'
+plugins {
+    id 'java'
+    id 'com.bmuschko.nexus' version '2.3.1'
+    id 'com.github.ben-manes.versions' version '0.20.0'
+}
 
 def compatibilityVersion = 1.8
 sourceCompatibility = compatibilityVersion
 targetCompatibility = compatibilityVersion
 version '1.0-SNAPSHOT'
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
-    }
-}
 
 repositories {
     mavenCentral()
