@@ -16,7 +16,7 @@ buildscript {
 
     dependencies {
         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
     }
 }
 
@@ -26,8 +26,8 @@ repositories {
 
 dependencies {
     compile 'org.jblas:jblas:1.2.4'
-    compile 'com.google.guava:guava:23.0'
-    testCompile 'junit:junit:4.12'
+    compile 'com.google.guava:guava:27.0.1-jre'
+    testCompile 'junit:junit:4.13-beta-1'
 }
 
 javadoc {
