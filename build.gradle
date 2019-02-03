@@ -41,6 +41,6 @@ extraArchive {
 
 nexus {
     sign = false
-    repositoryUrl = nexusURL + 'releases'
-    snapshotRepositoryUrl = nexusURL + 'snapshots'
+    repositoryUrl = (System.getenv('NEXUS_URL') ?: nexusURL) + 'releases'
+    snapshotRepositoryUrl = (System.getenv('NEXUS_URL') ?: nexusURL) + 'snapshots'
 }
