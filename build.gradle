@@ -22,13 +22,26 @@ dependencies {
     testImplementation 'junit:junit:4.13-beta-1'
 }
 
+def static javaAPI() {
+    switch(JavaVersion.current()) {
+        case JavaVersion.VERSION_1_8:
+            return 'https://docs.oracle.com/javase/8/docs/api/'
+        case JavaVersion.VERSION_1_9:
+            return 'https://docs.oracle.com/javase/9/docs/api/'
+        case JavaVersion.VERSION_11:
+            return 'https://docs.oracle.com/en/java/javase/11/docs/api/'
+        default:
+            throw new GradleException('Unsupported Java version')
+    }
+}
+
 javadoc {
     title 'ParC: Parametric Curves ' + version + ' API'
 
     options {
         author true
         linkSource true
-        links 'https://docs.oracle.com/javase/8/docs/api/'
+        links javaAPI()
         links 'http://jblas.org/javadoc/'
     }
 }
