@@ -6,3 +6,5 @@ jdk:
   - oraclejdk8
   - oraclejdk9
   - oraclejdk11
+before_install:
+  - sudo apt-get install -q libgfortran3
