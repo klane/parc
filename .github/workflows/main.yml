@@ -4,6 +4,7 @@ on: push
 
 jobs:
   gradle:
+    name: "Java ${{ matrix.java }}"
     runs-on: ubuntu-latest
     strategy:
       matrix:
