@@ -30,6 +30,8 @@ def static javaAPI() {
             return 'https://docs.oracle.com/javase/9/docs/api/'
         case JavaVersion.VERSION_11:
             return 'https://docs.oracle.com/en/java/javase/11/docs/api/'
+        case JavaVersion.VERSION_13:
+            return 'https://docs.oracle.com/en/java/javase/13/docs/api/'
         default:
             throw new GradleException('Unsupported Java version')
     }
