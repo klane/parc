@@ -7,5 +7,3 @@ jdk:
   - oraclejdk11
 before_install:
   - sudo apt-get install -q libgfortran3
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
