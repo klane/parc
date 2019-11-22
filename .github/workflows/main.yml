@@ -1,0 +1,22 @@
+name: Tests
+
+on: push
+
+jobs:
+  gradle:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        java: [8, 11, 13]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: Run tests
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: build
