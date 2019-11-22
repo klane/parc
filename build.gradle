@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'jacoco'
     id 'com.bmuschko.nexus' version '2.3.1'
-    id 'com.github.ben-manes.versions' version '0.20.0'
+    id 'com.github.ben-manes.versions' version '0.27.0'
 }
 
 def compatibilityVersion = 1.8
@@ -17,10 +17,10 @@ repositories {
 dependencies {
     // ParC dependencies
     implementation 'org.jblas:jblas:1.2.4'
-    implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation 'com.google.guava:guava:28.1-jre'
 
     // test dependencies
-    testImplementation 'junit:junit:4.13-beta-1'
+    testImplementation 'junit:junit:4.13-rc-1'
 }
 
 def static javaAPI() {
