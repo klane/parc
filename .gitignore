@@ -9,7 +9,8 @@ out/
 *.ipr
 *.iws
 
-# Eclipse
+# Java
 .settings/
 .classpath
 .project
+*.class
