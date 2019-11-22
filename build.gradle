@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'jacoco'
-    id 'com.bmuschko.nexus' version '2.3.1'
     id 'com.github.ben-manes.versions' version '0.27.0'
 }
 
@@ -45,18 +44,6 @@ javadoc {
         links javaAPI()
         links 'http://jblas.org/javadoc/'
     }
-}
-
-extraArchive {
-    sources = true
-    tests = false
-    javadoc = true
-}
-
-nexus {
-    sign = false
-    repositoryUrl = (System.getenv('NEXUS_URL') ?: nexusURL) + 'releases'
-    snapshotRepositoryUrl = (System.getenv('NEXUS_URL') ?: nexusURL) + 'snapshots'
 }
 
 jacocoTestReport {
